@@ -1,0 +1,61 @@
+@use './variables' as *;
+
+/* ## responsive breakpoints ## */
+
+@mixin tablet-responsive {
+    @media screen and (min-width: $tablet-resolution) {
+        @content;
+    }
+}
+
+@mixin desktop-responsive {
+    @media screen and (min-width: $desktop-resolution) {
+        @content;
+    }
+}
+
+@mixin custom-responsive($type, $resolution) {
+    @if $type == "min" {
+        @media screen and (min-width: $resolution) {
+            @content;
+        }
+    }
+    @else if $type == "max" {
+        @media screen and (max-width: $resolution) {
+            @content;
+        }
+    }
+}
+
+/* ## utilities ## */
+
+@mixin flex-item-realestate($grow, $shrink, $base) {
+    flex: $grow $shrink $base;
+}
+
+@mixin padding-headline($screentype) {
+    @if $screentype == "mobile" {
+        padding-top: $size-increment-x2-1;
+        padding-bottom: $size-increment-x2;
+    }
+    @else if $screentype == "tablet" or $screentype == "desktop" {
+        padding-top: $size-increment-x3-1;
+        padding-bottom: $size-increment-x2-1;
+    }
+    @else {
+        padding-top: auto;
+        padding-bottom: auto;
+    }
+}
+
+@mixin padding-component($screentype) {
+    @if $screentype == "mobile" {
+        padding-bottom: $size-increment-x2;
+    }
+    @else if $screentype == "tablet" or $screentype == "desktop" {
+        padding-bottom: $size-increment-x2-1;
+    }
+    @else {
+        padding-bottom: auto;
+    }
+}

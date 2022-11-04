@@ -1,0 +1,53 @@
+@use './variables' as *;
+@use './fontface' as *;
+@use './mixins' as *;
+
+/* ## Default Styles ## */
+
+body {
+    font-family: $font-face;
+    font-size: $size-increment-x2;
+    line-height: $size-increment-x2-1;
+    font-weight: $font-weight-regular;
+    color: $primary-color-main;
+}
+a {
+    text-decoration: none;
+    font-style: normal;
+}
+h1, h2 {
+    font-size: $size-increment-x2-1;
+    line-height: $size-increment-x3;
+}
+h3, h4 {
+    font-weight: $font-weight-regular;
+}
+hr, img, video, input {
+    width: 100%;
+}
+hr {
+    height: 1px;
+    background-color: $alternate-color-tertiary;
+}
+span {
+    display: block;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    @extend .flex-container;
+    
+    max-width: $site-container;
+    padding: 0 $size-increment-x2;
+    margin: 0 auto;
+
+    @include tablet-responsive {padding: 0 $size-increment-x3-1;}
+    @include desktop-responsive {padding: 0 0;}
+}
