@@ -1,9 +1,7 @@
-import './App.css';
-import Avatar from './components/Avatar/Avatar';
+import './App.scss';
 
 function App() {
   return (
-    <div></div>
   );
 }
 

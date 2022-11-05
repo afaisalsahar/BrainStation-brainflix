@@ -1,8 +1,8 @@
-const CallToAction = () => {
+import './CallToAction.scss';
+
+const CallToAction = ({modifier, text}) => {
     return (
-        <div>
-            
-        </div>
+        <button className={`call-to-action call-to-action--${modifier}`}>{text}</button>
     );
 };
 
