@@ -43,8 +43,8 @@
         padding-bottom: $size-increment-x2-1;
     }
     @else {
-        padding-top: auto;
-        padding-bottom: auto;
+        padding-top: 0;
+        padding-bottom: 0;
     }
 }
 
@@ -56,6 +56,6 @@
         padding-bottom: $size-increment-x2-1;
     }
     @else {
-        padding-bottom: auto;
+        padding-bottom: 0;
     }
 }

@@ -1,0 +1,83 @@
+@use '../../styles/partials/_variables.scss' as *;
+@use '../../styles/partials/_globals.scss' as *;
+@use '../../styles/partials/_mixins.scss' as *;
+
+.masthead {
+    &__container {
+        @extend .container;
+
+        padding-top: $size-increment-x2;
+        @include padding-component("mobile");
+    }
+
+    &__go-home {
+        @extend .flex-container;
+        
+        @include flex-item-realestate(1, 1, 100%);
+        @include padding-component("mobile");
+
+        @include tablet-responsive {
+            justify-content: flex-start;
+
+            @include flex-item-realestate(1, 1, 30%);
+            @include padding-component("none");
+        }
+    }
+
+    &__logo {
+        max-width: 7.5rem;
+    }
+
+    &__actions {
+        @extend .flex-container;
+        justify-content: space-between;
+        column-gap: 2%;
+        row-gap: $size-increment-x2;
+
+        @include tablet-responsive {
+            @include flex-item-realestate(1, 1, 65%);
+            row-gap: 0;
+            column-gap: $size-increment-x2;
+        }
+        @include desktop-responsive {
+            @include flex-item-realestate(1, 1, 40%);
+        }
+    }
+
+    &__form {
+        @include flex-item-realestate(1, 1, 70%);
+
+        @include tablet-responsive {
+            @include flex-item-realestate(1, 1, 50%);
+        }
+    }
+
+    &__search {
+        background: url('../../assets/icons/search.svg') $size-increment-x1-1 center no-repeat;
+        min-width: $form-field-min-width;
+        min-height: $size-increment-x3-2;
+        border-radius: $size-increment-x1;
+        border: 1px solid $alternate-color-tertiary;
+        padding: 0 $size-increment-x1-2;
+        padding-left: 1.875rem;
+
+        @include tablet-responsive {
+            @include flex-item-realestate(1, 1, 30%);
+        }
+    }
+
+    &__upload {
+        @include flex-item-realestate(1, 1, 100%);
+
+        @include tablet-responsive {
+            @include flex-item-realestate(1, 1, 30%);
+        }
+    }
+
+    .avatar {
+        @include tablet-responsive {
+            align-self: center;
+            order: 2;
+        }
+    }
+}
