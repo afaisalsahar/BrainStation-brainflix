@@ -11,6 +11,10 @@
         justify-content: flex-start;
         flex-wrap: nowrap;
         column-gap: $size-increment-x2;
+
+        @include tablet-responsive {
+            column-gap: $size-increment-x2-1;
+        }
     }
 
     &__form {
@@ -37,7 +41,7 @@
         @include tablet-responsive {
             height: calc($size-increment-x3-2 - .7rem);
             padding-top: .7rem;
-            margin-right: $size-increment-x2;
+            margin-right: $size-increment-x2-1;
             padding-bottom: 0;
             margin-bottom: 0;
             @include flex-item-realestate(1, 1, 70%);

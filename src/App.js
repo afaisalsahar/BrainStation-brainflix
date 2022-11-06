@@ -10,6 +10,7 @@ import CommentForm from './components/CommentForm/CommentForm';
 import videoDetails from './data/video-details.json';
 import videos from './data/videos.json';
 import Avatar from './components/Avatar/Avatar';
+import Comments from './components/Comments/Comments';
 
 function App() {
   
@@ -43,6 +44,7 @@ function App() {
         comments={playingNow.comments.length}
       />
       <CommentForm />
+      <Comments />
     </>
   );
 }

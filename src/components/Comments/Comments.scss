@@ -1,0 +1,55 @@
+@use '../../styles/partials/_variables.scss' as *;
+@use '../../styles/partials/_globals.scss' as *;
+@use '../../styles/partials/_mixins.scss' as *;
+
+.comments {
+    &__container {
+        @extend .container;
+
+        @include padding-component("mobile");
+
+        @include tablet-responsive {
+            @include padding-component("tablet");
+        }
+    }
+
+    &__comment {
+        @extend .flex-container;
+
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        column-gap: $size-increment-x2;
+
+        @include tablet-responsive {
+            column-gap: $size-increment-x2-1;
+        }
+    }
+
+    &__item {
+        @extend .flex-container;
+        
+        justify-content: space-between;            
+    }
+
+    &__name, &__date {
+        @include padding-component("mobile");
+
+        @include tablet-responsive {
+            @include padding-component("tablet");
+        }
+    }
+
+    &__body {
+        @include flex-item-realestate(1, 1, 100%);
+    }
+
+    &__divider {
+        margin-top: $size-increment-x2;
+        margin-bottom: $size-increment-x2;
+
+        @include tablet-responsive {
+            margin-top: $size-increment-x2-1;
+            margin-bottom: $size-increment-x2-1;    
+        }
+    }
+}
