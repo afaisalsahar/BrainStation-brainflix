@@ -1,0 +1,101 @@
+@use '../../styles/partials/_variables.scss' as *;
+@use '../../styles/partials/_globals.scss' as *;
+@use '../../styles/partials/_mixins.scss' as *;
+
+.main {
+    &__container {
+        @extend .container;
+        justify-content: flex-start;
+
+        @include padding-component("mobile");
+
+        @include tablet-responsive {
+            @include padding-component("tablet");
+        }
+    }
+    
+    &__title {
+
+        @include padding-headline("mobile");
+
+        @include tablet-responsive {
+            @include padding-headline("tablet");
+        }
+    }    
+
+    &__details {
+        @extend .flex-container;
+         
+        justify-content: space-between;
+        color: $primary-color-tertiary;
+        padding-right: 20%;
+
+        @include padding-component("mobile");
+        @include flex-item-realestate(1, 1, 100%);
+        
+        @include tablet-responsive {
+            @include padding-component("tablet");
+            padding-right: 0;
+        }
+    }
+
+    &__creator, &__stats {
+        @include tablet-responsive {
+            display: flex;
+        }
+
+    }
+
+    &__views, &__likes {
+        &:before {
+            padding-right: $size-increment-x1-1;
+            position: relative;
+            top: 2px;
+        }
+    }
+    &__views, &__channel {
+        @include padding-component("mobile");
+
+        @include tablet-responsive {
+            @include padding-headline("none");
+            margin-right: $size-increment-x2;
+        }
+    }
+
+    &__views {
+        &:before {
+            content: url("../../assets/icons/views.svg");
+        }
+    }
+
+    &__likes {
+        &:before {
+            content: url("../../assets/icons/likes.svg");
+        }
+    }
+
+    &__body {
+        @include padding-component("mobile");
+
+        @include tablet-responsive {
+            @include padding-component("tablet");
+        }
+    }
+
+    &__channel, &__comments{
+        color: $primary-color-main;
+        font-weight: 700;
+    }
+
+    &__divider {
+        margin-bottom: $size-increment-x2;
+
+        @include tablet-responsive {
+            margin-bottom: $size-increment-x2-1;
+
+            &--mobile {
+                display: none;
+            }
+        }
+    }
+}

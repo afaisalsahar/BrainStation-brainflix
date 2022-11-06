@@ -3,12 +3,21 @@ import { useState } from 'react';
 import './App.scss';
 
 import Header from './components/Header/Header';
+import Main from './components/Main/Main';
 import VideoPlayer from './components/VideoPlayer/VideoPlayer';
 
 import videoDetails from './data/video-details.json';
 import videos from './data/videos.json';
 
 function App() {
+  
+  const readableDate = (epochMS) => {
+    return new Date(epochMS)
+    .toLocaleDateString()
+    .split('/')
+    .map(dmy => dmy.length === 1 && `0${dmy}` || dmy)
+    .join('/');
+  }
   
   const [playingNow, setPlayingNow] = useState(
     videoDetails[
@@ -18,11 +27,19 @@ function App() {
     ]
   );
 
-
   return (
     <>
       <Header />
       <VideoPlayer poster={playingNow.image} />
+      <Main 
+        title={playingNow.title}
+        channel={playingNow.channel}
+        date={readableDate(playingNow.timestamp)}
+        views={playingNow.views}
+        likes={playingNow.likes}
+        description={playingNow.description}
+        comments={playingNow.comments.length}
+      />
     </>
   );
 }
