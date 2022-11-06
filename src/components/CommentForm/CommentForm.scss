@@ -1,0 +1,67 @@
+@use '../../styles/partials/_variables.scss' as *;
+@use '../../styles/partials/_reset.scss' as *;
+@use '../../styles/partials/_globals.scss' as *;
+@use '../../styles/partials/_fontface.scss' as *;
+@use '../../styles/partials/_mixins.scss' as *;
+
+.converse {
+    &__container {
+        @extend .container;
+
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        column-gap: $size-increment-x2;
+    }
+
+    &__form {
+        @extend .flex-container;
+        flex-wrap: wrap;
+
+        @include flex-item-realestate(1, 1, auto);
+    }
+
+    &__label {
+        @extend .label;
+        font-weight: $font-weight-regular;
+        color: $primary-color-tertiary;
+        
+        @include flex-item-realestate(1, 1, 100%);
+    }
+    
+    &__box {
+        @extend .form-field;
+        resize: none;
+        margin: $size-increment-x1 0 $size-increment-x2;
+
+        @include flex-item-realestate(1, 1, 100%);
+        @include tablet-responsive {
+            height: calc($size-increment-x3-2 - .7rem);
+            padding-top: .7rem;
+            margin-right: $size-increment-x2;
+            padding-bottom: 0;
+            margin-bottom: 0;
+            @include flex-item-realestate(1, 1, 70%);
+        }
+    }
+    
+    &__box::placeholder {
+        color: $primary-color-main;
+    }
+
+    .call-to-action--comment {
+        @include flex-item-realestate(1, 1, 100%);
+
+        @include tablet-responsive {
+            @include flex-item-realestate(1, 1, 25%);
+        }
+        @include tablet-responsive {
+            @include flex-item-realestate(1, 1, 15%);
+        }
+    }
+
+    .avatar {
+        @include tablet-responsive {
+            align-self: flex-end;
+        }
+    }
+}

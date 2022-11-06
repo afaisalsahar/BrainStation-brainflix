@@ -3,11 +3,13 @@ import { useState } from 'react';
 import './App.scss';
 
 import Header from './components/Header/Header';
-import Main from './components/Main/Main';
 import VideoPlayer from './components/VideoPlayer/VideoPlayer';
+import Main from './components/Main/Main';
+import CommentForm from './components/CommentForm/CommentForm';
 
 import videoDetails from './data/video-details.json';
 import videos from './data/videos.json';
+import Avatar from './components/Avatar/Avatar';
 
 function App() {
   
@@ -30,8 +32,8 @@ function App() {
   return (
     <>
       <Header />
-      <VideoPlayer poster={playingNow.image} />
       <Main 
+        poster={playingNow.image}
         title={playingNow.title}
         channel={playingNow.channel}
         date={readableDate(playingNow.timestamp)}
@@ -40,6 +42,7 @@ function App() {
         description={playingNow.description}
         comments={playingNow.comments.length}
       />
+      <CommentForm />
     </>
   );
 }

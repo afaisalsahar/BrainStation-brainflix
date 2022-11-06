@@ -1,8 +1,10 @@
 import './Main.scss';
+import VideoPlayer from '../VideoPlayer/VideoPlayer';
 
-const Main = ({title, channel, date, views, likes, description, comments}) => {
+const Main = ({title, channel, date, views, likes, description, comments, poster}) => {
     return (
         <main className="main">
+            <VideoPlayer poster={poster} />
             <div className="main__container">
                 <h1 className="main__title">{title}</h1>
                 <hr className="main__divider main__divider--mobile" />

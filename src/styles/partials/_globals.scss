@@ -51,3 +51,29 @@ span {
     @include tablet-responsive {padding: 0 $size-increment-x3-1;}
     @include desktop-responsive {padding: 0 0;}
 }
+
+.label {
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+}
+
+.form-field {
+    min-height: $size-increment-x3-1;
+    min-width: 15rem;
+    width: 100%;
+    font-family: $font-face;
+    color: $primary-color-main;
+    border-radius: $size-increment-x1;
+    border: 1px solid $alternate-color-tertiary;
+    padding: $size-increment-x1-2;
+    
+    &:active, &:focus, &:focus-visible {
+        border-width: 2px;
+        border-color: $primary-color-secondary;
+        outline-color: $primary-color-secondary;
+    }
+
+    @include tablet-responsive {
+        min-height: $size-increment-x3-2;
+    }
+}

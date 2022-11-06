@@ -12,8 +12,8 @@
         overflow: hidden;
 
         @include tablet-responsive {
-            width: $size-increment-x4;
-            height: $size-increment-x4;    
+            width: $size-increment-x3-2;
+            height: $size-increment-x3-2;    
         }
     }
     
