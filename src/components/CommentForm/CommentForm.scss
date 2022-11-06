@@ -52,6 +52,16 @@
         color: $primary-color-main;
     }
 
+    &__divider {
+        margin-top: $size-increment-x2;
+        margin-bottom: $size-increment-x2;
+
+        @include tablet-responsive {
+            margin-top: $size-increment-x2-1;
+            margin-bottom: $size-increment-x2-1;    
+        }
+    }
+    
     .call-to-action--comment {
         @include flex-item-realestate(1, 1, 100%);
 

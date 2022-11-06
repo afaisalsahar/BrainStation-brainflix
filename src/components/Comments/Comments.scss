@@ -5,12 +5,6 @@
 .comments {
     &__container {
         @extend .container;
-
-        @include padding-component("mobile");
-
-        @include tablet-responsive {
-            @include padding-component("tablet");
-        }
     }
 
     &__comment {
@@ -39,6 +33,14 @@
         }
     }
 
+    &__name {
+        font-weight: $font-weight-bold;
+    }
+
+    &__date {
+        color: $primary-color-tertiary;    
+    }
+
     &__body {
         @include flex-item-realestate(1, 1, 100%);
     }
@@ -50,6 +52,10 @@
         @include tablet-responsive {
             margin-top: $size-increment-x2-1;
             margin-bottom: $size-increment-x2-1;    
+        }
+
+        &:last-of-type {
+            margin-bottom: 0;
         }
     }
 }

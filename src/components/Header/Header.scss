@@ -34,6 +34,8 @@
         column-gap: 2%;
         row-gap: $size-increment-x2;
 
+        @include flex-item-realestate(1, 1, 100%);
+
         @include tablet-responsive {
             @include flex-item-realestate(1, 1, 65%);
             row-gap: 0;

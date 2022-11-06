@@ -1,16 +1,13 @@
 import { useState } from 'react';
 
 import './App.scss';
+import Conversation from './components/Conversation/Conversation';
 
 import Header from './components/Header/Header';
-import VideoPlayer from './components/VideoPlayer/VideoPlayer';
 import Main from './components/Main/Main';
-import CommentForm from './components/CommentForm/CommentForm';
 
 import videoDetails from './data/video-details.json';
 import videos from './data/videos.json';
-import Avatar from './components/Avatar/Avatar';
-import Comments from './components/Comments/Comments';
 
 function App() {
   
@@ -43,8 +40,7 @@ function App() {
         description={playingNow.description}
         comments={playingNow.comments.length}
       />
-      <CommentForm />
-      <Comments />
+      <Conversation comments={playingNow.comments} readableDate={readableDate} />
     </>
   );
 }

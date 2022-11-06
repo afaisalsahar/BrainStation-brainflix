@@ -13,6 +13,9 @@ const CommentForm = () => {
                     <CallToAction modifier="comment" text="Comment"/>
                 </form>
             </div>
+            <div className="converse__container">
+                <hr className="converse__divider" />
+            </div>
         </div>
     );
 };
