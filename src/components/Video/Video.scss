@@ -1,0 +1,47 @@
+@use '../../styles/partials/_variables.scss' as *;
+@use '../../styles/partials/_reset.scss' as *;
+@use '../../styles/partials/_globals.scss' as *;
+@use '../../styles/partials/_fontface.scss' as *;
+@use '../../styles/partials/_mixins.scss' as *;
+
+.video {
+    @extend .flex-container;
+
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    column-gap: $size-increment-x2;
+    cursor: pointer;
+
+    @include flex-item-realestate(1, 1, 100%);
+    @include tablet-responsive {
+        column-gap: $size-increment-x2;
+    }
+
+    &__title {
+        margin-bottom: $size-increment-x1;
+
+        text-overflow:ellipsis;
+        overflow:hidden;
+
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        white-space: normal;
+    }
+
+    &__image {
+        width: 8.5rem;
+        height: 5.5rem;
+        border-radius: $size-increment-x1;
+    }
+
+    &__divider {
+        margin-top: $size-increment-x2;
+        margin-bottom: $size-increment-x2;
+
+        @include tablet-responsive {
+            margin-top: $size-increment-x2-1;
+            margin-bottom: $size-increment-x2-1;    
+        }
+    }
+}

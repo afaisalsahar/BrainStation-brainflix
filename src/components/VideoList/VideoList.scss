@@ -14,6 +14,7 @@
         font-weight: $font-weight-bold;
         color: $primary-color-tertiary;
 
+        @include flex-item-realestate(1, 1, 100%);
         @include padding-headline("mobile");
     }
 }

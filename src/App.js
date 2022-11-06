@@ -28,6 +28,23 @@ function App() {
     ]
   );
 
+  const [videoList, setVideoList] = useState(
+    videos.filter(video => video.id !== playingNow.id)
+  );
+
+  const handleVideoList = id => {
+    setVideoList(
+      [...videos].filter(video => video.id !== id)
+    );
+  }
+
+  const handlePlayNow = id => {
+    handleVideoList(id);
+    setPlayingNow(
+      [...videoDetails].find(video => video.id === id)
+    );
+  }
+
   return (
     <>
       <Header />
@@ -42,7 +59,7 @@ function App() {
         comments={playingNow.comments.length}
       />
       <Conversation comments={playingNow.comments} readableDate={readableDate} />
-      <VideoList />
+      <VideoList list={videoList} playNow={handlePlayNow} />
     </>
   );
 }
