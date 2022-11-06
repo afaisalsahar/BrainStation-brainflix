@@ -1,0 +1,19 @@
+@use '../../styles/partials/_variables.scss' as *;
+@use '../../styles/partials/_reset.scss' as *;
+@use '../../styles/partials/_globals.scss' as *;
+@use '../../styles/partials/_fontface.scss' as *;
+@use '../../styles/partials/_mixins.scss' as *;
+
+.videos {
+    &__container {
+        @extend .container;
+        justify-content: flex-start;
+    }
+
+    &__title {
+        font-weight: $font-weight-bold;
+        color: $primary-color-tertiary;
+
+        @include padding-headline("mobile");
+    }
+}

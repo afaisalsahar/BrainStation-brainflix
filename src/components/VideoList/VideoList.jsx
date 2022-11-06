@@ -1,8 +1,12 @@
+import './VideoList.scss'
+
 const VideoList = () => {
     return (
-        <div>
-            
-        </div>
+        <section className='videos'>
+            <div className='videos__container'>
+                <h3 className='videos__title'>Next Videos</h3>
+            </div>
+        </section>
     );
 };
 

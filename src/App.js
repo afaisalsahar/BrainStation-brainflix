@@ -5,6 +5,7 @@ import Conversation from './components/Conversation/Conversation';
 
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
+import VideoList from './components/VideoList/VideoList';
 
 import videoDetails from './data/video-details.json';
 import videos from './data/videos.json';
@@ -41,6 +42,7 @@ function App() {
         comments={playingNow.comments.length}
       />
       <Conversation comments={playingNow.comments} readableDate={readableDate} />
+      <VideoList />
     </>
   );
 }
