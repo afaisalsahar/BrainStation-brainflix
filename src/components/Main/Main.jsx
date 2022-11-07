@@ -1,4 +1,5 @@
 import './Main.scss';
+import TimeAgo from 'timeago-react'
 
 const Main = ({title, channel, date, views, likes, description, comments}) => {
     return (
@@ -8,7 +9,9 @@ const Main = ({title, channel, date, views, likes, description, comments}) => {
             <div className="main__details">
                 <div className="main__creator">
                     <span className="main__channel">By {channel}</span>
-                    <span className="main__date">{date}</span>
+                    <span className="main__date">
+                        <TimeAgo datetime={date}/>
+                    </span>
                 </div>
                 <div className="main__stats">
                     <span className="main__views">{views}</span>

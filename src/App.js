@@ -12,15 +12,7 @@ import videoDetails from './data/video-details.json';
 import videos from './data/videos.json';
 
 function App() {
-  
-  const readableDate = (epochMS) => {
-    return new Date(epochMS)
-    .toLocaleDateString()
-    .split('/')
-    .map(dmy => dmy.length === 1 && `0${dmy}` || dmy)
-    .join('/');
-  }
-  
+    
   const [playingNow, setPlayingNow] = useState(
     videoDetails[
       Math.floor(
@@ -56,13 +48,13 @@ function App() {
             <Main
               title={playingNow.title}
               channel={playingNow.channel}
-              date={readableDate(playingNow.timestamp)}
+              date={playingNow.timestamp}
               views={playingNow.views}
               likes={playingNow.likes}
               description={playingNow.description}
               comments={playingNow.comments.length}
             />
-            <Conversation comments={playingNow.comments} readableDate={readableDate} />
+            <Conversation comments={playingNow.comments} />
           </div>
           <div className='master__right'>
             <VideoList list={videoList} playNow={handlePlayNow} />

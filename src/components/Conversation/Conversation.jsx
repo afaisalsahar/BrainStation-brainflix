@@ -11,7 +11,7 @@ const Conversation = (comments) => {
                 <div className='comments__container'>
                     {comments.comments.map(content => {
                         let {id, name, comment, timestamp} = content;
-                        return <Comments key={id} name={name} date={comments.readableDate(timestamp)} comment={comment} />
+                        return <Comments key={id} name={name} date={timestamp} comment={comment} />
                     })}
                 </div>
             </div>
