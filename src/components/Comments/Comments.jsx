@@ -7,7 +7,7 @@ const Comments = ({name, date, comment}) => {
             <article className="comments__comment">        
                 <Avatar showImage={false}/>
                 <div className="comments__item">
-                    <h3 className="comments__name">{name}</h3>
+                    <p className="comments__name">{name}</p>
                     <span className="comments__date">{date}</span>
                     <p className="comments__body">{comment}</p>
                 </div>

@@ -6,7 +6,7 @@
 
 .videos {
     &__container {
-        @extend .container;
+        @extend .flex-container;
         justify-content: flex-start;
     }
 
@@ -16,5 +16,9 @@
 
         @include flex-item-realestate(1, 1, 100%);
         @include padding-headline("mobile");
+
+        @include tablet-responsive {
+            @include padding-headline("tablet");
+        }
     }
 }

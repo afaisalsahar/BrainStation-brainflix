@@ -3,3 +3,33 @@
 @use 'styles/partials/_globals.scss' as *;
 @use 'styles/partials/_fontface.scss' as *;
 @use 'styles/partials/_mixins.scss' as *;
+
+.master {
+    &__container {
+        @extend .container;
+        justify-content: flex-start;
+
+        @include padding-component("mobile");
+
+        @include tablet-responsive {
+            @include padding-component("tablet");
+        }
+        @include desktop-responsive {
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+    }
+
+    &__left {
+        @include desktop-responsive {
+            @include flex-item-realestate(1, 1, 65%);
+        }
+    }
+    &__right {
+        @include desktop-responsive {
+            @include flex-item-realestate(1, 1, 35%);
+            border-left: 1px solid $alternate-color-tertiary;
+            padding-left: 3%;
+        }
+    }
+}

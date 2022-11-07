@@ -3,15 +3,9 @@
 @use '../../styles/partials/_mixins.scss' as *;
 
 .main {
-    &__container {
-        @extend .container;
-        justify-content: flex-start;
-
-        @include padding-component("mobile");
-
-        @include tablet-responsive {
-            @include padding-component("tablet");
-        }
+    @include padding-component("mobile");
+    @include tablet-responsive {
+        @include padding-component("tablet");
     }
     
     &__title {
@@ -21,6 +15,11 @@
         @include tablet-responsive {
             @include padding-headline("tablet");
         }
+
+        @include desktop-responsive {
+            padding-right: $size-increment-x2-1;
+        }
+
     }    
 
     &__details {
@@ -36,6 +35,10 @@
         @include tablet-responsive {
             @include padding-component("tablet");
             padding-right: 0;
+        }
+
+        @include desktop-responsive {
+            padding-right: $size-increment-x2-1;
         }
     }
 
@@ -58,7 +61,7 @@
 
         @include tablet-responsive {
             @include padding-headline("none");
-            margin-right: $size-increment-x2;
+            margin-right: $size-increment-x3;
         }
     }
 
@@ -79,6 +82,10 @@
 
         @include tablet-responsive {
             @include padding-component("tablet");
+        }
+
+        @include desktop-responsive {
+            padding-right: $size-increment-x2-1;
         }
     }
 

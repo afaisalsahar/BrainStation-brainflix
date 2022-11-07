@@ -6,7 +6,7 @@
 
 .converse {
     &__container {
-        @extend .container;
+        @extend .flex-container;
 
         justify-content: flex-start;
         flex-wrap: nowrap;
@@ -22,6 +22,11 @@
         flex-wrap: wrap;
 
         @include flex-item-realestate(1, 1, auto);
+
+        @include desktop-responsive {
+            padding-right: $size-increment-x2-1;
+        }
+
     }
 
     &__label {
@@ -35,6 +40,7 @@
     &__box {
         @extend .form-field;
         resize: none;
+        height: $size-increment-x6;
         margin: $size-increment-x1 0 $size-increment-x2;
 
         @include flex-item-realestate(1, 1, 100%);
@@ -45,6 +51,9 @@
             padding-bottom: 0;
             margin-bottom: 0;
             @include flex-item-realestate(1, 1, 70%);
+        }
+        @include desktop-responsive {
+            @include flex-item-realestate(1, 1, 64%);
         }
     }
     
@@ -70,6 +79,9 @@
         }
         @include tablet-responsive {
             @include flex-item-realestate(1, 1, 15%);
+        }
+        @include desktop-responsive {
+            @include flex-item-realestate(1, 1, 31%);
         }
     }
 

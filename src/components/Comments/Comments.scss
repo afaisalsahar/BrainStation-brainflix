@@ -3,10 +3,6 @@
 @use '../../styles/partials/_mixins.scss' as *;
 
 .comments {
-    &__container {
-        @extend .container;
-    }
-
     &__comment {
         @extend .flex-container;
 
@@ -16,6 +12,10 @@
 
         @include tablet-responsive {
             column-gap: $size-increment-x2-1;
+        }
+
+        @include desktop-responsive {
+            padding-right: $size-increment-x2-1;
         }
     }
 
@@ -56,6 +56,12 @@
 
         &:last-of-type {
             margin-bottom: 0;
+        }
+
+        @include desktop-responsive {
+            &:last-of-type {
+                display: none;
+            }
         }
     }
 }

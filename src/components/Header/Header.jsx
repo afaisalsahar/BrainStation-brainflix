@@ -9,9 +9,11 @@ const Header = () => {
     return (
         <header className="masthead">
             <div className="masthead__container">
-                <a className="masthead__go-home" href="/">
-                    <img className="masthead__logo" src={brainFlixLogo} alt="BrainFlix Logo" />
-                </a>
+                <div className="masthead__branding">
+                    <a className="masthead__home" href="/">
+                        <img className="masthead__logo" src={brainFlixLogo} alt="BrainFlix Logo" />
+                    </a>
+                </div>
                 <div className="masthead__actions">
                     <form className="masthead__form">
                         <input type="search" className="masthead__search" name="masthead--search" id="masthead--search" placeholder="Search" />

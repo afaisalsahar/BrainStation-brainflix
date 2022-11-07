@@ -5,6 +5,7 @@ import Conversation from './components/Conversation/Conversation';
 
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
+import VideoPlayer from './components/VideoPlayer/VideoPlayer';
 import VideoList from './components/VideoList/VideoList';
 
 import videoDetails from './data/video-details.json';
@@ -48,18 +49,26 @@ function App() {
   return (
     <>
       <Header />
-      <Main 
-        poster={playingNow.image}
-        title={playingNow.title}
-        channel={playingNow.channel}
-        date={readableDate(playingNow.timestamp)}
-        views={playingNow.views}
-        likes={playingNow.likes}
-        description={playingNow.description}
-        comments={playingNow.comments.length}
-      />
-      <Conversation comments={playingNow.comments} readableDate={readableDate} />
-      <VideoList list={videoList} playNow={handlePlayNow} />
+      <main className="master">
+        <VideoPlayer poster={playingNow.image} />
+        <div className="master__container">
+          <div className='master__left'>
+            <Main
+              title={playingNow.title}
+              channel={playingNow.channel}
+              date={readableDate(playingNow.timestamp)}
+              views={playingNow.views}
+              likes={playingNow.likes}
+              description={playingNow.description}
+              comments={playingNow.comments.length}
+            />
+            <Conversation comments={playingNow.comments} readableDate={readableDate} />
+          </div>
+          <div className='master__right'>
+            <VideoList list={videoList} playNow={handlePlayNow} />
+          </div>
+        </div>
+      </main>
     </>
   );
 }

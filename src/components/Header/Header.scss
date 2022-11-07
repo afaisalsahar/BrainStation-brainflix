@@ -10,7 +10,7 @@
         @include padding-component("mobile");
     }
 
-    &__go-home {
+    &__branding {
         @extend .flex-container;
         
         @include flex-item-realestate(1, 1, 100%);
@@ -42,7 +42,7 @@
             column-gap: $size-increment-x2;
         }
         @include desktop-responsive {
-            @include flex-item-realestate(1, 1, 40%);
+            @include flex-item-realestate(1, 1, 30%);
         }
     }
 
@@ -55,12 +55,9 @@
     }
 
     &__search {
+        @extend .form-field;
+
         background: url('../../assets/icons/search.svg') $size-increment-x1-1 center no-repeat;
-        min-width: $form-field-min-width;
-        min-height: $size-increment-x3-2;
-        border-radius: $size-increment-x1;
-        border: 1px solid $alternate-color-tertiary;
-        padding: 0 $size-increment-x1-2;
         padding-left: 1.875rem;
 
         @include tablet-responsive {
@@ -80,6 +77,10 @@
         @include tablet-responsive {
             align-self: center;
             order: 2;
+        }
+
+        @include desktop-responsive {
+            margin-left: $size-increment-x2;
         }
     }
 }
