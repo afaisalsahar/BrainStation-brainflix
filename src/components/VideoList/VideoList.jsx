@@ -1,5 +1,8 @@
 import './VideoList.scss'
-import Video from '../Video/Video';
+
+import { Link } from 'react-router-dom';
+
+import Video from '../Video/Video'
 
 const VideoList = (videos) => {
     return (
@@ -10,14 +13,17 @@ const VideoList = (videos) => {
                     videos.list.map(video => {
                         let {id, image, title, channel} = video;
                         return (
-                            <Video 
-                                key={id}
-                                id={id}
-                                poster={image}
-                                title={title}
-                                channel={channel}
-                                playNow={videos.playNow}
-                            />
+                            <Link className='video' key={id} to={`/video/${id}`}>
+                                <Video 
+                                    key={id}
+                                    id={id}
+                                    poster={image}
+                                    title={title}
+                                    channel={channel}
+                                    playNow={videos.playNow}
+                                />
+                            </Link>
+
                         )
                     })
                 }

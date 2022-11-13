@@ -1,8 +1,8 @@
 import './Video.scss'
 
-const Video = ({id, poster, title, channel, playNow}) => {
+const Video = ({poster, title, channel}) => {
     return (
-        <div className="video" onClick={() => playNow(id)}>
+        <div className="video__container">
             <div className="video__thumbnail">
                 <img className="video__image" src={poster} />
             </div>
