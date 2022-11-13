@@ -23,7 +23,6 @@ const VideoList = (videos) => {
                                     playNow={videos.playNow}
                                 />
                             </Link>
-
                         )
                     })
                 }

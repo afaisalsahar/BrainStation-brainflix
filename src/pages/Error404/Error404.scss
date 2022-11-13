@@ -1,0 +1,53 @@
+@use '../../styles/partials/_variables.scss' as *;
+@use '../../styles/partials/_reset.scss' as *;
+@use '../../styles/partials/_globals.scss' as *;
+@use '../../styles/partials/_fontface.scss' as *;
+@use '../../styles/partials/_mixins.scss' as *;
+
+.error {
+    margin-top: 10%;
+    @extend .flex-container;
+    @include flex-item-realestate(1, 1, 100%);
+
+    .error__shape {
+        width: $form-field-min-width;
+        height: $form-field-min-width;
+        border-radius: 50%;
+        border-style: solid;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: $primary-color-secondary;
+
+        margin-bottom: $size-increment-x2;
+        @include tablet-responsive {
+            margin-bottom: $size-increment-x2-1;    
+        }
+    }
+
+    .error__text {
+        padding-top: $size-increment-x1-2;
+        color: $primary-color-quartary;
+        font-weight: $font-weight-bold;
+        font-size: $size-increment-x6;
+    }
+
+    .error__body {
+        @include flex-item-realestate(1, 1, 100%);
+        text-align: center;
+
+        margin-bottom: $size-increment-x1-1;
+    }
+    
+    .error__link {
+        margin-right: $size-increment-x2;
+
+        &:last-of-type {
+            margin-right: 0;
+        }
+
+        &:hover {
+            color: $alternate-color-secondary;
+        }
+    }
+}

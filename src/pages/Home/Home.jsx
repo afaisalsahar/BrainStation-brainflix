@@ -1,7 +1,8 @@
 import './Home.scss'
 
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+
 import axios from 'axios';
 
 import Main from '../../components/Main/Main';
@@ -19,6 +20,8 @@ const Home = () => {
     
     const {id} = useParams();
 
+    const navgiate = useNavigate();
+
     useEffect(() => {
         axios.get(`${URL}/${VID_ENDPOINT}?api_key=${API_KEY}`)
         .then(response => {
@@ -30,7 +33,9 @@ const Home = () => {
             .then(response => {
                 setPlayingNow(response.data);
             })
-            .catch(error => {})
+            .catch(error => {
+                navgiate("/error404");
+            })
         })
     },[id]);
   
