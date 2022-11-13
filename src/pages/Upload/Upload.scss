@@ -1,0 +1,175 @@
+@use '../../styles/partials/_variables.scss' as *;
+@use '../../styles/partials/_reset.scss' as *;
+@use '../../styles/partials/_globals.scss' as *;
+@use '../../styles/partials/_fontface.scss' as *;
+@use '../../styles/partials/_mixins.scss' as *;
+
+.upload {
+    &__title {
+        @include padding-headline("mobile");
+
+        @include tablet-responsive {
+            @include padding-headline("tablet");
+        }
+    }
+
+    &__form {
+        @extend .flex-container;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+
+        @include desktop-responsive {
+            column-gap: $size-increment-x2-1;
+        }
+    }
+    
+    &__label, &__thumbnail, &__content, &__actions {
+        @include flex-item-realestate(1, 1, 100%);
+    }
+
+    &__label {
+        color: $primary-color-tertiary;
+        text-transform: uppercase;
+        font-weight: $font-weight-bold;
+        margin-bottom: $size-increment-x1;
+    }
+
+    &__thumbnail, &__content, &__video-title {
+        @include padding-component("mobile");
+
+        @include tablet-responsive {
+            @include padding-component("tablet");
+        }
+    }
+
+    &__thumbnail {
+        @include tablet-responsive {
+            @include flex-item-realestate(0, 1, 50%);
+        }
+
+        @include desktop-responsive {
+            @include flex-item-realestate(1, 1, 28%);
+        }
+    }
+
+    &__image {
+        border-radius: $size-increment-x1;
+    }
+
+    &__content {
+        @include desktop-responsive {
+            @include flex-item-realestate(1, 1, 65%);
+        }
+    }
+
+    &__input, &__body{
+        @extend .form-field;
+    }
+
+    &__body {
+        min-height: $size-increment-x6;
+        resize: none;
+    }
+
+    &__actions {
+        @extend .flex-container;
+        justify-content: flex-end;
+        @include tablet-responsive {
+            column-gap: $size-increment-x2-1;
+        }
+    }
+
+    &__publish, &__cancel {
+        @include flex-item-realestate(1, 1, 100%);
+        @include tablet-responsive {
+            @include flex-item-realestate(0, 1, 17%);
+        }
+    }
+
+    &__cancel {
+        display: block;
+        margin-top: $size-increment-x2;
+        .call-to-action {
+            background-color: #FFF;
+            color: $primary-color-secondary;
+        }
+
+        @include tablet-responsive {
+            margin-top: 0;
+            order: -1;
+        }
+    }
+
+    &__divider {
+        display: none;
+
+        @include tablet-responsive {
+            display: block;
+            margin-bottom: $size-increment-x2-1;
+        }
+    }
+
+    &__success {
+        @include flex-item-realestate(1, 1, 100%);
+        text-align: center;
+        padding: $size-increment-x1-1;
+        margin-top: $size-increment-x2-1;
+    }
+
+    &__counter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        margin: auto;
+        width: $size-increment-x4;
+        height: $size-increment-x4;
+        background-color: $primary-color-secondary;
+        color: $primary-color-quartary;
+        font-size: $size-increment-x3;
+        font-weight: $font-weight-bold;
+
+        &:after {
+            padding-top: $size-increment-x1-1;
+            content: counter(count);
+            animation: counter 5s ease alternate;
+            counter-reset: count 0;
+          }
+          
+          @keyframes counter {
+            0% {
+              counter-increment: count 10;
+            }
+            10% {
+              counter-increment: count 9;
+            }
+            20% {
+              counter-increment: count 8;
+            }
+            30% {
+              counter-increment: count 7;
+            }
+            40% {
+              counter-increment: count 6;
+            }
+            50% {
+              counter-increment: count 5;
+            }
+            60% {
+              counter-increment: count 4;
+            }
+            70% {
+              counter-increment: count 3;
+            }
+            80% {
+              counter-increment: count 2;
+            }
+            90% {
+              counter-increment: count 1;
+            }
+            100% {
+              counter-increment: count 0;
+            }
+          }
+    }
+}
