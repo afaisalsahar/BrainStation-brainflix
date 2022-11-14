@@ -5,6 +5,8 @@ import brainFlixLogo from '../../assets/logo/BrainFlix-logo.svg';
 import Avatar from '../Avatar/Avatar';
 import CallToAction from '../CallToAction/CallToAction';
 
+import {Link} from 'react-router-dom';
+
 const Header = () => {
     return (
         <header className="masthead">
@@ -22,7 +24,9 @@ const Header = () => {
                     <Avatar showImage={true} defaultAvatar={true} avatarAlt="user avatar" />
 
                     <form className="masthead__upload">
-                        <CallToAction modifier="upload" text="Upload"/>
+                        <Link to="/upload">
+                            <CallToAction modifier="upload" text="Upload"/>
+                        </Link>
                     </form>
                 </div>
             </div>

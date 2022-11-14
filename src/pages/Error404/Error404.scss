@@ -5,7 +5,7 @@
 @use '../../styles/partials/_mixins.scss' as *;
 
 .error {
-    margin-top: 10%;
+    margin-top: 30vh;
     @extend .flex-container;
     @include flex-item-realestate(1, 1, 100%);
 

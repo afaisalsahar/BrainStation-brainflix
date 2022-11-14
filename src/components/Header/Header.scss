@@ -3,6 +3,8 @@
 @use '../../styles/partials/_mixins.scss' as *;
 
 .masthead {
+    box-shadow: 1px 1px $alternate-color-tertiary;
+    
     &__container {
         @extend .container;
 

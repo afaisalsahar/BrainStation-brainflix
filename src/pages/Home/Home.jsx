@@ -20,25 +20,27 @@ const Home = () => {
     
     const {id} = useParams();
 
-    const navgiate = useNavigate();
+    const navigate = useNavigate();
 
     useEffect(() => {
         axios.get(`${URL}/${VID_ENDPOINT}?api_key=${API_KEY}`)
         .then(response => {
             setVideoList(
-                (id && response.data.filter(video => video.id !== id) || response.data.splice(1))
+                ((id && response.data.filter(video => video.id !== id)) || response.data.splice(1))
             );
 
             return axios.get(`${URL}/${VID_ENDPOINT}/${(id || response.data[0].id)}?api_key=${API_KEY}`)
             .then(response => {
                 setPlayingNow(response.data);
             })
+            
             .catch(error => {
-                navgiate("/error404");
+                navigate("/error404");
             })
         })
-    },[id]);
-  
+    }, [id, navigate]);
+    
+
     if(playingNow) {
         return (
             <main className="master">
@@ -61,7 +63,7 @@ const Home = () => {
                     </div>
                 </div>
             </main>
-        );
+    );
     }
 };
 

@@ -1,8 +1,12 @@
 import './CallToAction.scss';
 
-const CallToAction = ({modifier, text}) => {
+const CallToAction = ({modifier, text, handleClick}) => {
     return (
-        <button className={`call-to-action call-to-action--${modifier}`}>{text}</button>
+        <button 
+            className={`call-to-action call-to-action--${modifier}`}
+            onClick={() => (handleClick ? handleClick() : null)}
+            >{text}
+        </button>
     );
 };
 
