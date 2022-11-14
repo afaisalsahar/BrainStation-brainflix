@@ -47,6 +47,13 @@
         @include flex-item-realestate(1, 1, 100%);
     }
 
+    &__delete {
+        margin-left: auto;
+        color: $primary-color-tertiary;
+        cursor: pointer;
+        margin-top: $size-increment-x2;
+    }
+
     &__divider {
         margin-top: $size-increment-x2;
         margin-bottom: $size-increment-x2;

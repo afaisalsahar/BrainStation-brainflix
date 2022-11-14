@@ -2,7 +2,7 @@ import './Comments.scss';
 import Avatar from "../Avatar/Avatar";
 import TimeAgo from 'timeago-react';
 
-const Comments = ({name, date, comment}) => {
+const Comments = ({id, name, date, comment, handleDeleteComment}) => {
     return (
         <>
             <article className="comments__comment">
@@ -13,6 +13,7 @@ const Comments = ({name, date, comment}) => {
                         <TimeAgo datetime={date}/>
                     </span>
                     <p className="comments__body">{comment}</p>
+                    <a className='comments__delete' onClick={() => handleDeleteComment(id)}>Delete</a>
                 </div>
             </article>
             <hr className="comments__divider" />        

@@ -72,10 +72,20 @@ const Home = () => {
                 axios.get(`${URL}/${VID_ENDPOINT}/${playingNow.id}?api_key=${API_KEY}`)
                 .then(response => {
                     setTopVidComments(response.data.comments)
-                })
+                });
             })
             event.target.form.reset();
         }
+    }
+
+    const deleteComment = (id) => {
+        axios.delete(`${URL}/${VID_ENDPOINT}/${playingNow.id}/comments/${id}?api_key=${API_KEY}`)
+        .then(response => {
+            axios.get(`${URL}/${VID_ENDPOINT}/${playingNow.id}?api_key=${API_KEY}`)
+            .then(response => {
+                setTopVidComments(response.data.comments)
+            });
+        });
     }
     
     if(playingNow) {
@@ -93,7 +103,7 @@ const Home = () => {
                             description={playingNow.description}
                             comments={playingNow.comments.length}
                         />
-                        <Conversation comments={topVidComments} handleNewComment={addNewComment}/>
+                        <Conversation comments={topVidComments} handleNewComment={addNewComment} handleDeleteComment={deleteComment}/>
                     </div>
                     <div className='master__right'>
                         <VideoList list={videoList}/>
