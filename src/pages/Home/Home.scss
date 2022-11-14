@@ -3,3 +3,49 @@
 @use '../../styles/partials/_globals.scss' as *;
 @use '../../styles/partials/_fontface.scss' as *;
 @use '../../styles/partials/_mixins.scss' as *;
+
+.loading {
+    margin-top: 40vh;
+
+    &__circles, &__circles::before, &__circles::after {
+        width: $size-increment-x3;
+        height: $size-increment-x3;
+        border-radius: 50%;
+        background-color: $primary-color-secondary;
+        color: $primary-color-secondary;
+        animation: dotFlashing 1s infinite linear alternate;
+    }
+    
+    &__circles {
+        margin: auto;
+        position: relative;
+        animation-delay: .5s;
+      }
+      
+    &__circles::before, &__circles::after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: 0;
+    }
+      
+    &__circles::before {
+        left: -$size-increment-x3-1;
+        animation-delay: 0s;
+    }
+    
+    &__circles::after {
+        left: $size-increment-x3-1;
+        animation-delay: 1s;
+    }
+    
+    @keyframes dotFlashing {
+        0% {
+            background-color: $primary-color-secondary;
+        }
+        50%,
+        100% {
+            background-color: $alternate-color-tertiary;
+        }
+    }
+}

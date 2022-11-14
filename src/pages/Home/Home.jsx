@@ -64,7 +64,13 @@ const Home = () => {
                 </div>
             </main>
     );
-    }
+    } else {
+        return (
+            <div className='loading'>
+                <span className='loading__circles'></span>
+            </div>
+        )
+    }    
 };
 
 export default Home;
