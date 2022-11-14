@@ -5,7 +5,7 @@ import TimeAgo from 'timeago-react';
 const Comments = ({name, date, comment}) => {
     return (
         <>
-            <article className="comments__comment">        
+            <article className="comments__comment">
                 <Avatar showImage={false}/>
                 <div className="comments__item">
                     <p className="comments__name">{name}</p>

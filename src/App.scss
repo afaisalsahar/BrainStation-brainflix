@@ -23,12 +23,12 @@
     &__left {
         @include desktop-responsive {
             @include flex-item-realestate(1, 1, 65%);
+            border-right: 1px solid $alternate-color-tertiary;
         }
     }
     &__right {
         @include desktop-responsive {
             @include flex-item-realestate(1, 1, 35%);
-            border-left: 1px solid $alternate-color-tertiary;
             padding-left: 3%;
         }
     }

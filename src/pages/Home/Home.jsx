@@ -16,6 +16,7 @@ const API_KEY = 'bc3e6a76-4848-4adf-bdae-03dfc0597ac6';
 
 const Home = () => {
     const [playingNow, setPlayingNow] = useState(null);
+    const [topVidComments, setTopVidComments] = useState(null);
     const [videoList, setVideoList] = useState(null);
     
     const {id} = useParams();
@@ -32,6 +33,7 @@ const Home = () => {
             return axios.get(`${URL}/${VID_ENDPOINT}/${(id || response.data[0].id)}?api_key=${API_KEY}`)
             .then(response => {
                 setPlayingNow(response.data);
+                setTopVidComments(response.data.comments)
             })
             
             .catch(error => {
@@ -40,7 +42,42 @@ const Home = () => {
         })
     }, [id, navigate]);
     
+    const addNewComment = (event) => {
+        event.preventDefault();
 
+        const name = [
+            'Harry Ross',
+            'Bruce Cook',
+            'Carolyn Morgan',
+            'Albert Walker',
+            'Randy Reed',
+            'Larry Barnes',
+            'Lois Wilson',
+            'Jesse Campbell',
+            'Ernest Rogers',
+            'Theresa Patterson',
+            'Henry Simmons',
+            'Michelle Perry',
+            'Frank Butler'
+        ];
+        const comment = event.target.form[0].value;
+
+        if(comment.length > 0) {
+            axios.post(`${URL}/${VID_ENDPOINT}/${playingNow.id}/comments?api_key=${API_KEY}`,
+            {
+                'name': name[Math.floor(Math.random() * name.length)],
+                'comment': comment
+            })
+            .then(response => {
+                axios.get(`${URL}/${VID_ENDPOINT}/${playingNow.id}?api_key=${API_KEY}`)
+                .then(response => {
+                    setTopVidComments(response.data.comments)
+                })
+            })
+            event.target.form.reset();
+        }
+    }
+    
     if(playingNow) {
         return (
             <main className="master">
@@ -56,7 +93,7 @@ const Home = () => {
                             description={playingNow.description}
                             comments={playingNow.comments.length}
                         />
-                        <Conversation comments={playingNow.comments} />
+                        <Conversation comments={topVidComments} handleNewComment={addNewComment}/>
                     </div>
                     <div className='master__right'>
                         <VideoList list={videoList}/>

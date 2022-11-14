@@ -2,7 +2,7 @@ import './CommentForm.scss';
 import CallToAction from '../CallToAction/CallToAction';
 import Avatar from '../Avatar/Avatar';
 
-const CommentForm = () => {
+const CommentForm = ({handleNewComment}) => {
     return (
         <div className="converse"> 
             <div className="converse__container">
@@ -10,7 +10,7 @@ const CommentForm = () => {
                 <form className="converse__form">
                     <label className="converse__label" htmlFor="converse-box">Join The Conversation</label>
                     <textarea className="converse__box" name="converse-box" id="converse-box" placeholder="Add a new comment"></textarea>
-                    <CallToAction modifier="comment" text="Comment"/>
+                    <button className="call-to-action call-to-action--comment" onClick={handleNewComment}>Comment</button> 
                 </form>
             </div>
             <div className="converse__container">
