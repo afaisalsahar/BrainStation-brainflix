@@ -1,5 +1,4 @@
 import './CommentForm.scss';
-import CallToAction from '../CallToAction/CallToAction';
 import Avatar from '../Avatar/Avatar';
 
 const CommentForm = ({handleNewComment}) => {

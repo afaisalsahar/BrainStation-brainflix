@@ -20,9 +20,9 @@ const VID_ENDPOINT = 'videos';
 const API_KEY = 'removelater';
 
 const Home = () => {
-    const [playingNow, setPlayingNow] = useState(null);
-    const [topVidComments, setTopVidComments] = useState(null);
-    const [videoList, setVideoList] = useState(null);
+    const [featuredVideo, setFeaturedVideo] = useState(null);
+    const [featuredComments, setFeaturedComments] = useState([]);
+    const [videos, setVideos] = useState([]);
     
     const {id} = useParams();
     const navigate = useNavigate();
@@ -30,17 +30,18 @@ const Home = () => {
     useEffect(() => {
         axios.get(`${URL}:${PORT}/${VID_ENDPOINT}`)
         .then(response => {
-            setVideoList(
+            setVideos(
                 ((id && response.data.filter(video => video.id !== id)) || response.data.splice(1))
             )
             
             return axios.get(`${URL}:${PORT}/${VID_ENDPOINT}/${(id || response.data[0].id)}`);
         })
         .then(response => {
-            setPlayingNow(response.data);
-            setTopVidComments(response.data.comments)
+            document.title = (id && `${response.data.title} | BrainFlix`) || 'BrainFlix';
+            setFeaturedVideo(response.data);
+            setFeaturedComments(response.data.comments)
         })
-        .catch(error => {
+        .catch(err => {
             navigate("/error404");
         })
     }, [id, navigate]);
@@ -66,15 +67,15 @@ const Home = () => {
         const comment = event.target.form[0].value;
 
         if(comment.length > 0) {
-            axios.post(`${URL}/${VID_ENDPOINT}/${playingNow.id}/comments?api_key=${API_KEY}`,
+            axios.post(`${URL}/${VID_ENDPOINT}/${featuredVideo.id}/comments?api_key=${API_KEY}`,
             {
                 'name': name[Math.floor(Math.random() * name.length)],
                 'comment': comment
             })
             .then(response => {
-                axios.get(`${URL}/${VID_ENDPOINT}/${playingNow.id}?api_key=${API_KEY}`)
+                axios.get(`${URL}/${VID_ENDPOINT}/${featuredVideo.id}?api_key=${API_KEY}`)
                 .then(response => {
-                    setTopVidComments(response.data.comments)
+                    setFeaturedComments(response.data.comments)
                 });
             })
             event.target.form.reset();
@@ -82,34 +83,34 @@ const Home = () => {
     }
 
     const deleteComment = (id) => {
-        axios.delete(`${URL}/${VID_ENDPOINT}/${playingNow.id}/comments/${id}?api_key=${API_KEY}`)
+        axios.delete(`${URL}/${VID_ENDPOINT}/${featuredVideo.id}/comments/${id}?api_key=${API_KEY}`)
         .then(response => {
-            axios.get(`${URL}/${VID_ENDPOINT}/${playingNow.id}?api_key=${API_KEY}`)
+            axios.get(`${URL}/${VID_ENDPOINT}/${featuredVideo.id}?api_key=${API_KEY}`)
             .then(response => {
-                setTopVidComments(response.data.comments)
+                setFeaturedComments(response.data.comments)
             });
         });
     }
     
-    if(playingNow) {
+    if(featuredVideo) {
         return (
             <main className="master">
-                <VideoPlayer poster={playingNow.image} />
+                <VideoPlayer poster={featuredVideo.image} />
                 <div className="master__container">
                     <div className='master__left'>
                         <Main
-                            title={playingNow.title}
-                            channel={playingNow.channel}
-                            date={playingNow.timestamp}
-                            views={playingNow.views}
-                            likes={playingNow.likes}
-                            description={playingNow.description}
-                            comments={playingNow.comments.length}
+                            title={featuredVideo.title}
+                            channel={featuredVideo.channel}
+                            date={featuredVideo.timestamp}
+                            views={featuredVideo.views}
+                            likes={featuredVideo.likes}
+                            description={featuredVideo.description}
+                            comments={featuredVideo.comments.length}
                         />
-                        <Conversation comments={topVidComments} handleNewComment={addNewComment} handleDeleteComment={deleteComment}/>
+                        <Conversation comments={featuredComments} handleNewComment={addNewComment} handleDeleteComment={deleteComment}/>
                     </div>
                     <div className='master__right'>
-                        <VideoList list={videoList}/>
+                        <VideoList list={videos}/>
                     </div>
                 </div>
             </main>

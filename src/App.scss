@@ -29,7 +29,7 @@
     &__right {
         @include desktop-responsive {
             @include flex-item-realestate(1, 1, 35%);
-            padding-left: 3%;
+            padding-left: 2%;
         }
     }
 }

@@ -7,6 +7,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 const Upload = () => {
+    document.title = 'Upload | BrainFlix';
+
     const [videoPublished, setVideoPublished] = useState(null);
     const navigate = useNavigate();
 
