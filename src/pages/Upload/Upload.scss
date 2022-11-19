@@ -5,10 +5,17 @@
 @use '../../styles/partials/_mixins.scss' as *;
 
 .upload {
+    @include flex-item-realestate(1, 1, 100%);
+
+    @include tablet-responsive {
+        @include padding-component("tablet");
+    }
+
     &__title {
         @include padding-headline("mobile");
 
         @include tablet-responsive {
+            @include horizontal-line("bottom");
             @include padding-headline("tablet");
         }
     }
@@ -22,8 +29,11 @@
             column-gap: $size-increment-x2-1;
         }
     }
-    
-    &__label, &__thumbnail, &__content, &__actions {
+
+    &__label,
+    &__thumbnail,
+    &__content,
+    &__actions {
         @include flex-item-realestate(1, 1, 100%);
     }
 
@@ -34,7 +44,9 @@
         margin-bottom: $size-increment-x1;
     }
 
-    &__thumbnail, &__content, &__video-title {
+    &__thumbnail,
+    &__content,
+    &__video-title {
         @include padding-component("mobile");
 
         @include tablet-responsive {
@@ -62,7 +74,8 @@
         }
     }
 
-    &__input, &__body{
+    &__input,
+    &__body {
         @extend .form-field;
     }
 
@@ -74,46 +87,57 @@
     &__actions {
         @extend .flex-container;
         justify-content: flex-end;
+
         @include tablet-responsive {
+            padding-top: $size-increment-x2-1;
+            @include horizontal-line("top");
             column-gap: $size-increment-x2-1;
-        }
+        }    
     }
 
-    &__publish, &__cancel {
+    &__publish,
+    &__cancel {
+        @extend .call-to-action;
+
         @include flex-item-realestate(1, 1, 100%);
+
         @include tablet-responsive {
             @include flex-item-realestate(0, 1, 17%);
         }
     }
 
+    &__publish {
+        @extend .call-to-action--upload;
+    }
+
     &__cancel {
         display: block;
         margin-top: $size-increment-x2;
-        .call-to-action {
+
+        background-color: #FFF;
+        color: $primary-color-secondary;
+
+        &:hover {
             background-color: #FFF;
-            color: $primary-color-secondary;
+            color: $primary-color-secondary;    
         }
 
         @include tablet-responsive {
             margin-top: 0;
             order: -1;
         }
+
     }
-
-    &__divider {
-        display: none;
-
-        @include tablet-responsive {
-            display: block;
-            margin-bottom: $size-increment-x2-1;
-        }
-    }
-
+    
     &__success {
         @include flex-item-realestate(1, 1, 100%);
         text-align: center;
         padding: $size-increment-x1-1;
         margin-top: $size-increment-x2-1;
+    }
+    &__error {
+        @include flex-item-realestate(1, 1, 100%);
+        color: #D22222;
     }
 
     &__counter {
@@ -134,42 +158,52 @@
             content: counter(count);
             animation: counter 5s ease alternate;
             counter-reset: count 0;
-          }
-          
-          @keyframes counter {
+        }
+
+        @keyframes counter {
             0% {
-              counter-increment: count 10;
+                counter-increment: count 10;
             }
+
             10% {
-              counter-increment: count 9;
+                counter-increment: count 9;
             }
+
             20% {
-              counter-increment: count 8;
+                counter-increment: count 8;
             }
+
             30% {
-              counter-increment: count 7;
+                counter-increment: count 7;
             }
+
             40% {
-              counter-increment: count 6;
+                counter-increment: count 6;
             }
+
             50% {
-              counter-increment: count 5;
+                counter-increment: count 5;
             }
+
             60% {
-              counter-increment: count 4;
+                counter-increment: count 4;
             }
+
             70% {
-              counter-increment: count 3;
+                counter-increment: count 3;
             }
+
             80% {
-              counter-increment: count 2;
+                counter-increment: count 2;
             }
+
             90% {
-              counter-increment: count 1;
+                counter-increment: count 1;
             }
+
             100% {
-              counter-increment: count 0;
+                counter-increment: count 0;
             }
-          }
+        }
     }
 }

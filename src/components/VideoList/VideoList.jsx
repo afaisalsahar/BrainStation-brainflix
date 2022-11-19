@@ -3,10 +3,7 @@ import './VideoList.scss'
 import { Link } from 'react-router-dom';
 import Video from '../Video/Video'
 
-const VideoList = (videos) => {
-
-    console.log(videos);
-    
+const VideoList = (videos) => {    
     const scrollToFeaturedVid = () => {
         window.scrollTo(
             {

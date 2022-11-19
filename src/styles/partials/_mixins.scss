@@ -59,3 +59,12 @@
         padding-bottom: 0;
     }
 }
+
+@mixin horizontal-line($position) {
+    @if $position == 'top' {
+        border-top: 1px solid $alternate-color-tertiary;
+    }
+    @else if $position == 'bottom' {
+        border-bottom: 1px solid $alternate-color-tertiary;
+    }
+}

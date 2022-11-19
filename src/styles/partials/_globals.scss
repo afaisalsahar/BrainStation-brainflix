@@ -11,25 +11,30 @@ body {
     font-weight: $font-weight-regular;
     color: $primary-color-main;
 }
+
 a {
     text-decoration: none;
     font-style: normal;
     color: $primary-color-main;
 }
-h1, h2 {
+
+h1,
+h2 {
     font-size: $size-increment-x2-1;
     line-height: $size-increment-x3;
 }
-h3, h4 {
+
+h3,
+h4 {
     font-weight: $font-weight-regular;
 }
-hr, img, video, input {
+
+img,
+video,
+input {
     width: 100%;
 }
-hr {
-    height: 1px;
-    background-color: $alternate-color-tertiary;
-}
+
 span {
     display: block;
 }
@@ -44,13 +49,18 @@ span {
 
 .container {
     @extend .flex-container;
-    
+
     max-width: $site-container;
     padding: 0 $size-increment-x2;
     margin: 0 auto;
 
-    @include tablet-responsive {padding: 0 $size-increment-x3-1;}
-    @include desktop-responsive {padding: 0 0;}
+    @include tablet-responsive {
+        padding: 0 $size-increment-x3-1;
+    }
+
+    @include desktop-responsive {
+        padding: 0 0;
+    }
 }
 
 .label {
@@ -63,12 +73,15 @@ span {
     min-width: 15rem;
     width: 100%;
     font-family: $font-face;
+    font-size: $size-increment-x2;
     color: $primary-color-main;
     border-radius: $size-increment-x1;
     border: 1px solid $alternate-color-tertiary;
     padding: $size-increment-x1-2;
-    
-    &:active, &:focus, &:focus-visible {
+
+    &:active,
+    &:focus,
+    &:focus-visible {
         border-width: 2px;
         border-color: $primary-color-secondary;
         outline-color: $primary-color-secondary;
@@ -77,4 +90,48 @@ span {
     @include tablet-responsive {
         min-height: $size-increment-x3-2;
     }
+}
+
+/* call to action base styles */
+
+.call-to-action {
+    @extend .flex-container;
+
+    width: 100%;
+    height: $size-increment-x3-2;
+    background-color: $primary-color-secondary;
+    background-position: $size-increment-x1-1 center;
+    background-repeat: no-repeat;
+    color: $primary-color-quartary;
+    font-size: $size-increment-x2;
+    font-weight: $font-weight-bold;
+    border-radius: $size-increment-x1;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    transition: background .2s ease-in-out;
+
+    &:hover,
+    &:active {
+        background-color: $alternate-color-secondary;
+    }
+
+    &--upload {
+        background-image: url("../../assets/icons/upload.svg");
+    }
+
+    &--comment {
+        background-image: url("../../assets/icons/add_comment.svg");
+    }
+
+    @include tablet-responsive {
+        min-width: 9.375rem;
+        padding: 0 $size-increment-x3;
+    }
+}
+
+
+hr {
+    height: 1px;
+    background: $alternate-color-tertiary;
 }
