@@ -1,6 +1,8 @@
-import './Video.scss'
+// load SASS
+import "./Video.scss";
 
-const Video = ({poster, title, channel}) => {
+// video renders a single thumbnail in video list
+const Video = ({ poster, title, channel }) => {
     return (
         <div className="video__container">
             <div className="video__thumbnail">

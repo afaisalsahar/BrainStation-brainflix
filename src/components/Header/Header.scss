@@ -1,10 +1,15 @@
+// Load SASS partials
 @use '../../styles/partials/_variables.scss' as *;
+@use '../../styles/partials/_reset.scss' as *;
 @use '../../styles/partials/_globals.scss' as *;
+@use '../../styles/partials/_fontface.scss' as *;
 @use '../../styles/partials/_mixins.scss' as *;
 
+// header styles 
 .masthead {
     box-shadow: 1px 1px $alternate-color-tertiary;
-    
+
+    // container includes logo - search - upload - avatar
     &__container {
         @extend .container;
 
@@ -12,9 +17,10 @@
         @include padding-component("mobile");
     }
 
+    // branding includes logo 
     &__branding {
         @extend .flex-container;
-        
+
         @include flex-item-realestate(1, 1, 100%);
         @include padding-component("mobile");
 
@@ -30,6 +36,7 @@
         max-width: 7.5rem;
     }
 
+    // actions includes search and upload
     &__actions {
         @extend .flex-container;
         justify-content: space-between;
@@ -43,6 +50,7 @@
             row-gap: 0;
             column-gap: $size-increment-x2;
         }
+
         @include desktop-responsive {
             @include flex-item-realestate(1, 1, 30%);
         }
@@ -63,6 +71,7 @@
         padding-left: 1.875rem;
 
         @include tablet-responsive {
+            height: $size-increment-x3-1;
             @include flex-item-realestate(1, 1, 30%);
         }
     }
@@ -73,6 +82,11 @@
         @include tablet-responsive {
             @include flex-item-realestate(1, 1, 30%);
         }
+    }
+
+    &__action {
+        @extend .call-to-action;
+        @extend .call-to-action--upload;
     }
 
     .avatar {

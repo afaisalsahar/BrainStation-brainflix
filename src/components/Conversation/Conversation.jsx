@@ -1,8 +1,10 @@
+// load SASS - Comment Form and Comments components
 import "./Conversation.scss";
 
 import CommentForm from "../CommentForm/CommentForm";
 import Comments from "../Comments/Comments";
 
+// renders the dialogue section of the page with a form and all comments posted
 const Conversation = ({ comments, handleAddComment, handleDeleteComment }) => {
     return (
         <div className="conversation">

@@ -67,4 +67,8 @@
     @else if $position == 'bottom' {
         border-bottom: 1px solid $alternate-color-tertiary;
     }
+    @else {
+        border-top: 1px solid $alternate-color-tertiary;
+        border-bottom: 1px solid $alternate-color-tertiary;
+    }
 }

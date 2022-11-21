@@ -1,9 +1,14 @@
+// Load SASS partials
 @use '../../styles/partials/_variables.scss' as *;
+@use '../../styles/partials/_reset.scss' as *;
+@use '../../styles/partials/_globals.scss' as *;
+@use '../../styles/partials/_fontface.scss' as *;
 @use '../../styles/partials/_mixins.scss' as *;
 
 .avatar {
     align-self: flex-start;
 
+    // diplsay a circle representing a logged in user 
     &__circle {
         width: $size-increment-x3-1;
         height: $size-increment-x3-1;
@@ -13,10 +18,11 @@
 
         @include tablet-responsive {
             width: $size-increment-x3-2;
-            height: $size-increment-x3-2;    
+            height: $size-increment-x3-2;
         }
     }
-    
+
+    // Adjust image to display the best possible view   
     &__image {
         width: auto;
         height: 100%;

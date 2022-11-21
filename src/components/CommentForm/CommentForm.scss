@@ -1,10 +1,14 @@
+// Load SASS partials
 @use '../../styles/partials/_variables.scss' as *;
 @use '../../styles/partials/_reset.scss' as *;
 @use '../../styles/partials/_globals.scss' as *;
 @use '../../styles/partials/_fontface.scss' as *;
 @use '../../styles/partials/_mixins.scss' as *;
 
+// comment form styles
 .converse {
+
+    // container inludes all the elements - avatar/form/button
     &__container {
         @extend .flex-container;
 
@@ -12,11 +16,15 @@
         flex-wrap: nowrap;
         column-gap: $size-increment-x2;
 
+        @include padding-component("mobile");
+
         @include tablet-responsive {
             column-gap: $size-increment-x2-1;
+            @include padding-component("tablet");
         }
     }
 
+    // comment form styles - includes textarea/button
     &__form {
         @extend .flex-container;
         flex-wrap: wrap;
@@ -29,14 +37,16 @@
 
     }
 
+    // comment textarea label
     &__label {
         @extend .label;
         font-weight: $font-weight-regular;
         color: $primary-color-tertiary;
-        
+
         @include flex-item-realestate(1, 1, 100%);
     }
-    
+
+    // textarea styles 
     &__box {
         @extend .form-field;
         resize: none;
@@ -44,6 +54,7 @@
         margin: $size-increment-x1 0 $size-increment-x2;
 
         @include flex-item-realestate(1, 1, 100%);
+
         @include tablet-responsive {
             height: calc($size-increment-x3-2 - .7rem);
             padding-top: .7rem;
@@ -52,39 +63,37 @@
             margin-bottom: 0;
             @include flex-item-realestate(1, 1, 70%);
         }
+
         @include desktop-responsive {
             @include flex-item-realestate(1, 1, 64%);
         }
     }
-    
+
     &__box::placeholder {
         color: $primary-color-main;
     }
 
-    &__divider {
-        margin-top: $size-increment-x2;
-        margin-bottom: $size-increment-x2;
+    // submit button extends call to action styles defined in globals partials 
+    &__submit {
+        @extend .call-to-action;
+        @extend .call-to-action--comment;
 
-        @include tablet-responsive {
-            margin-top: $size-increment-x2-1;
-            margin-bottom: $size-increment-x2-1;    
-        }
-    }
-    
-    .call-to-action--comment {
         @include flex-item-realestate(1, 1, 100%);
 
         @include tablet-responsive {
             @include flex-item-realestate(1, 1, 25%);
         }
+
         @include tablet-responsive {
             @include flex-item-realestate(1, 1, 15%);
         }
+
         @include desktop-responsive {
             @include flex-item-realestate(1, 1, 31%);
         }
     }
 
+    // adjust user avatar 
     .avatar {
         @include tablet-responsive {
             align-self: flex-end;

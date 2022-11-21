@@ -1,9 +1,11 @@
+// Load SASS partials
 @use '../../styles/partials/_variables.scss' as *;
 @use '../../styles/partials/_reset.scss' as *;
 @use '../../styles/partials/_globals.scss' as *;
 @use '../../styles/partials/_fontface.scss' as *;
 @use '../../styles/partials/_mixins.scss' as *;
 
+// style videos list
 .videos {
     &__container {
         @extend .flex-container;

@@ -1,3 +1,4 @@
+// load partials
 @use '../../styles/partials/_variables.scss' as *;
 @use '../../styles/partials/_reset.scss' as *;
 @use '../../styles/partials/_globals.scss' as *;
@@ -92,7 +93,7 @@
             padding-top: $size-increment-x2-1;
             @include horizontal-line("top");
             column-gap: $size-increment-x2-1;
-        }    
+        }
     }
 
     &__publish,
@@ -119,7 +120,7 @@
 
         &:hover {
             background-color: #FFF;
-            color: $primary-color-secondary;    
+            color: $primary-color-secondary;
         }
 
         @include tablet-responsive {
@@ -128,18 +129,21 @@
         }
 
     }
-    
+
     &__success {
         @include flex-item-realestate(1, 1, 100%);
         text-align: center;
         padding: $size-increment-x1-1;
         margin-top: $size-increment-x2-1;
     }
+
+    // error is displayed when video cannot be published
     &__error {
         @include flex-item-realestate(1, 1, 100%);
         color: #D22222;
     }
 
+    // counter animation triggers when video is published 
     &__counter {
         display: flex;
         justify-content: center;

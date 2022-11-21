@@ -1,13 +1,18 @@
+// Load SASS partials
 @use '../../styles/partials/_variables.scss' as *;
+@use '../../styles/partials/_reset.scss' as *;
 @use '../../styles/partials/_globals.scss' as *;
+@use '../../styles/partials/_fontface.scss' as *;
 @use '../../styles/partials/_mixins.scss' as *;
 
+// main styles all details for featured video
 .main {
     @include padding-component("mobile");
+
     @include tablet-responsive {
         @include padding-component("tablet");
     }
-    
+
     &__title {
 
         @include padding-headline("mobile");
@@ -20,20 +25,24 @@
             padding-right: $size-increment-x2-1;
         }
 
-    }    
+    }
 
+    // details include - channel name / views / likes / timestamp
     &__details {
         @extend .flex-container;
-         
+
         justify-content: space-between;
         color: $primary-color-tertiary;
         padding-right: 20%;
 
+        padding-top: $size-increment-x2;
+        @include horizontal-line("top/bottom");
         @include padding-component("mobile");
         @include flex-item-realestate(1, 1, 100%);
-        
+
         @include tablet-responsive {
             @include padding-component("tablet");
+            padding-top: $size-increment-x2-1;
             padding-right: 0;
         }
 
@@ -42,21 +51,25 @@
         }
     }
 
-    &__creator, &__stats {
+    &__creator,
+    &__stats {
         @include tablet-responsive {
             display: flex;
         }
 
     }
 
-    &__views, &__likes {
+    &__views,
+    &__likes {
         &:before {
             padding-right: $size-increment-x1-1;
             position: relative;
             top: 2px;
         }
     }
-    &__views, &__channel {
+
+    &__views,
+    &__channel {
         @include padding-component("mobile");
 
         @include tablet-responsive {
@@ -77,11 +90,15 @@
         }
     }
 
+    // body includes video description
     &__body {
         @include padding-component("mobile");
 
+        padding-top: $size-increment-x2;
+
         @include tablet-responsive {
             @include padding-component("tablet");
+            padding-top: $size-increment-x2-1;
         }
 
         @include desktop-responsive {
@@ -89,20 +106,9 @@
         }
     }
 
-    &__channel, &__comments{
+    &__channel,
+    &__comments {
         color: $primary-color-main;
         font-weight: 700;
-    }
-
-    &__divider {
-        margin-bottom: $size-increment-x2;
-
-        @include tablet-responsive {
-            margin-bottom: $size-increment-x2-1;
-
-            &--mobile {
-                display: none;
-            }
-        }
     }
 }

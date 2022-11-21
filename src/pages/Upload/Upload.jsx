@@ -1,7 +1,6 @@
 import "./Upload.scss";
 
 import thumbnail from "../../assets/images/Upload-video-preview.jpg";
-import Button from "../../components/CallToAction/CallToAction";
 
 import axios from "axios";
 import { useNavigate } from "react-router-dom";

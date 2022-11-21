@@ -1,33 +1,52 @@
+// Load SASS partials
 @use '../../styles/partials/_variables.scss' as *;
+@use '../../styles/partials/_reset.scss' as *;
 @use '../../styles/partials/_globals.scss' as *;
+@use '../../styles/partials/_fontface.scss' as *;
 @use '../../styles/partials/_mixins.scss' as *;
 
 .comments {
+    @include horizontal-line("top");
+    
+    // comment contains all element - avatar/name/body/timestamp/delete button
     &__comment {
         @extend .flex-container;
 
         justify-content: flex-start;
         flex-wrap: nowrap;
         column-gap: $size-increment-x2;
+        padding-top: $size-increment-x2;
+
+        @include horizontal-line("bottom");
+        @include padding-component("mobile");
 
         @include tablet-responsive {
             column-gap: $size-increment-x2-1;
+            @include padding-component("tablet");
+            padding-top: $size-increment-x2-1;
         }
 
         @include desktop-responsive {
             padding-right: $size-increment-x2-1;
         }
+
+        &:last-of-type {
+            border-bottom: none;
+        }
     }
 
+    // styles single comment 
     &__item {
         @extend .flex-container;
-        
+
         justify-content: space-between;
-        
+
         @include flex-item-realestate(1, 1, 100%);
     }
 
-    &__name, &__date {
+    // styles name and timestamp
+    &__name,
+    &__date {
         @include padding-component("mobile");
 
         @include tablet-responsive {
@@ -40,37 +59,18 @@
     }
 
     &__date {
-        color: $primary-color-tertiary;    
+        color: $primary-color-tertiary;
     }
 
     &__body {
         @include flex-item-realestate(1, 1, 100%);
     }
 
+    // styles delete button
     &__delete {
         margin-left: auto;
         color: $primary-color-tertiary;
         cursor: pointer;
         margin-top: $size-increment-x2;
-    }
-
-    &__divider {
-        margin-top: $size-increment-x2;
-        margin-bottom: $size-increment-x2;
-
-        @include tablet-responsive {
-            margin-top: $size-increment-x2-1;
-            margin-bottom: $size-increment-x2-1;    
-        }
-
-        &:last-of-type {
-            margin-bottom: 0;
-        }
-
-        @include desktop-responsive {
-            &:last-of-type {
-                display: none;
-            }
-        }
     }
 }

@@ -16,6 +16,7 @@ a {
     text-decoration: none;
     font-style: normal;
     color: $primary-color-main;
+    -webkit-font-smoothing: antialiased;
 }
 
 h1,
