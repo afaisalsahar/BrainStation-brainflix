@@ -1,11 +1,10 @@
 
-# BrainStation Travel Site
+# BrainStation BrainFlix
 
 This project is the front-end of a prototype for a new video streaming platform called BrainFlix.
 Leveraging React, CSS/SASS, Node.JS, and Express JS. BEM methodology is used for class names and Flexbox for layout. The layout is responsive and adapts at all dimensions. 
 
-![Mockup]()
-![Mockup]()
+![Mockup](https://raw.githubusercontent.com/afaisalsahar/BrainStation-brainflix/main/mockups/images/homepage-mockup.jpg)
 
 ## Implementation Info
 
